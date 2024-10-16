@@ -40,7 +40,7 @@ h2 { font-weight: normal;}
 
 
 .topnav {
-    background-color: #E7E7E0;
+    background-color: #8a8a8a;
     overflow: hidden;
   }
   
@@ -54,11 +54,11 @@ h2 { font-weight: normal;}
   }
   
   .topnav a:hover {
-    background-color: #ddd;
+    background-color: #aec6cf;
     color: black;
   }
   
   .topnav a.active {
-    background-color: #9A9298;
+    background-color: #77815c;
     color: white;
   }
