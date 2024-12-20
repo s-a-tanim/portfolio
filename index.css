@@ -1,3 +1,45 @@
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f8f9fa; /* Optional background color */
+    border-bottom: 1px solid #ddd; /* Optional border */
+}
+
+#header h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+#header h1 a {
+    text-decoration: none;
+    color: #333; /* Link color */
+}
+
+.topnav {
+    display: flex;
+    gap: 15px; /* Space between navigation links */
+}
+
+.topnav a {
+    text-decoration: none;
+    color: #333; /* Link color */
+    font-size: 1em;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.topnav a:hover {
+    background-color: #e0e0e0; /* Optional hover effect */
+    border-radius: 5px;
+}
+
+.topnav a.active {
+    font-weight: bold;
+    color: #007bff; /* Active link color */
+}
+
 #name_box {
     width:200pt;
     position:relative;
