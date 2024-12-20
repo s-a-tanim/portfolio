@@ -1,64 +1,33 @@
-#header {
+#name_box {
+    width: 200pt;
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: #f8f9fa; /* Optional background color */
-    border-bottom: 1px solid #ddd; /* Optional border */
-}
-
-#header h1 {
-    margin: 0;
-    font-size: 1.5em;
-}
-
-#header h1 a {
-    text-decoration: none;
-    color: #333; /* Link color */
-}
-
-.topnav {
-    display: flex;
-    gap: 15px; /* Space between navigation links */
-}
-
-.topnav a {
-    text-decoration: none;
-    color: #333; /* Link color */
-    font-size: 1em;
-    padding: 5px 10px;
-    transition: background-color 0.3s;
-}
-
-.topnav a:hover {
-    background-color: #e0e0e0; /* Optional hover effect */
-    border-radius: 5px;
-}
-
-.topnav a.active {
-    font-weight: bold;
-    color: #007bff; /* Active link color */
-}
-
-#name_box {
-    width:200pt;
-    position:relative;
+    justify-content: space-between; /* Ensures proper spacing between elements */
 }
 
 #pic {
-    float:right;
-    width:200px;
-    margin-left:10px;
+    float: right;
+    width: 200px;
+    margin-left: 10px;
 }
+
 @media (max-width: 550px) {
-  #pic { display:block; float:none; margin:0 auto;   }
-  #about_text { display:inline-block; }
+  #pic { 
+    display: block; 
+    float: none; 
+    margin: 0 auto; 
+  }
+  #about_text { 
+    display: inline-block; 
+    text-align: center; 
+  }
 }
 
 #about {
-    padding-top:10pt;
-    padding-bottom:10pt;
-    width:100%;
+    padding-top: 10pt;
+    padding-bottom: 10pt;
+    width: 100%;
 }
 
 .section-title {
@@ -69,38 +38,46 @@
 }
 
 #class_list li {
-    margin-top:0pt;
-    margin-bottom:5pt;
+    margin-top: 0pt;
+    margin-bottom: 5pt;
 }
 
 #research_list li {
     margin-bottom: 10pt;
 }
 
-ul { margin-top: 0pt; }
-h2 { font-weight: normal;}
+ul {
+    margin-top: 0pt;
+}
 
+h2 {
+    font-weight: normal;
+}
 
 .topnav {
     background-color: #8a8a8a;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Aligns items across the row */
+    align-items: center; /* Vertically aligns items */
+    padding: 0 10px; /* Adds padding on the sides */
     overflow: hidden;
-  }
-  
-  .topnav a {
-    float: left;
+}
+
+.topnav a {
     color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
-  }
-  
-  .topnav a:hover {
+    transition: background-color 0.3s, color 0.3s; /* Smooth hover effects */
+}
+
+.topnav a:hover {
     background-color: #aec6cf;
     color: black;
-  }
-  
-  .topnav a.active {
+}
+
+.topnav a.active {
     background-color: #77815c;
     color: white;
-  }
+}
