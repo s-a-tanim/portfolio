@@ -1,77 +1,64 @@
-/* Header container for alignment */
-#header {
-    display: flex; /* Flexbox for row alignment */
-    align-items: center; /* Vertically center items */
-    justify-content: space-between; /* Space out title and navigation */
-    padding: 10px 20px; /* Add padding for spacing */
-    background-color: #f8f9fa; /* Light background */
-    border-bottom: 1px solid #ddd; /* Border for visual separation */
-    flex-wrap: wrap; /* Allow wrapping for small screens */
-    box-sizing: border-box; /* Consistent box model */
+#name_box {
+    width:200pt;
+    position:relative;
 }
 
-/* Header title styling */
-#header h1 {
-    margin: 0;
-    font-size: 24px; /* Adjust font size */
+#pic {
+    float:right;
+    width:200px;
+    margin-left:10px;
+}
+@media (max-width: 550px) {
+  #pic { display:block; float:none; margin:0 auto;   }
+  #about_text { display:inline-block; }
+}
+
+#about {
+    padding-top:10pt;
+    padding-bottom:10pt;
+    width:100%;
+}
+
+.section-title {
     font-weight: bold;
+    font-size: 15pt;
+    margin-top: 10pt;
+    margin-bottom: 5pt;
 }
 
-#header h1 a {
-    text-decoration: none; /* Remove underline */
-    color: #333; /* Text color */
+#class_list li {
+    margin-top:0pt;
+    margin-bottom:5pt;
 }
 
-/* Navigation bar styling */
+#research_list li {
+    margin-bottom: 10pt;
+}
+
+ul { margin-top: 0pt; }
+h2 { font-weight: normal;}
+
+
 .topnav {
-    display: flex; /* Inline flexbox navigation */
-    gap: 15px; /* Space between links */
-    flex-wrap: wrap; /* Allow wrapping if space runs out */
-    justify-content: center; /* Center links in small screens */
-}
-
-/* Individual navigation link styling */
-.topnav a {
-    color: #f2f2f2; /* Light text color */
-    background-color: #8a8a8a; /* Background color */
+    background-color: #8a8a8a;
+    overflow: hidden;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
     text-align: center;
-    padding: 10px 14px; /* Adjust padding for clickable area */
-    text-decoration: none; /* Remove underline */
-    font-size: 17px; /* Font size */
-    border-radius: 4px; /* Rounded corners */
-    transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
-}
-
-/* Hover effect for navigation links */
-.topnav a:hover {
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
     background-color: #aec6cf;
     color: black;
-}
-
-/* Active navigation link styling */
-.topnav a.active {
+  }
+  
+  .topnav a.active {
     background-color: #77815c;
     color: white;
-}
-
-/* Responsive design for small screens */
-@media (max-width: 550px) {
-    #header {
-        flex-direction: column; /* Stack header elements */
-        align-items: center; /* Center align items */
-        text-align: center;
-    }
-
-    .topnav {
-        justify-content: center; /* Center navigation links */
-    }
-
-    #header h1 {
-        margin-bottom: 10px; /* Add space between title and navigation */
-    }
-
-    /* Optional: Adjust padding for small screen sizes */
-    .topnav a {
-        padding: 8px 12px;
-    }
-}
+  }
