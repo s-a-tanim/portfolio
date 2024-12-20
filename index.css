@@ -6,6 +6,7 @@
     padding: 10px 20px; /* Add padding for spacing */
     background-color: #f8f9fa; /* Optional background color */
     border-bottom: 1px solid #ddd; /* Optional border for visual separation */
+    box-sizing: border-box; /* Ensure consistent padding and border behavior */
 }
 
 /* Header name styling */
@@ -23,7 +24,10 @@
 /* Navigation bar container */
 .topnav {
     display: flex; /* Flexbox for inline navigation links */
+    flex-wrap: nowrap; /* Prevent wrapping unless in smaller screens */
     gap: 15px; /* Spacing between links */
+    overflow: hidden; /* Prevent overflow on small screens */
+    align-items: center; /* Align items vertically in the row */
 }
 
 .topnav a {
