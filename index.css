@@ -1,15 +1,16 @@
 /* Header container for alignment */
 #header {
     display: flex; /* Flexbox for row alignment */
-    align-items: center; /* Vertically align items */
-    justify-content: space-between; /* Space out the name and navigation links */
+    align-items: center; /* Vertically center items */
+    justify-content: space-between; /* Space out title and navigation */
     padding: 10px 20px; /* Add padding for spacing */
-    background-color: #f8f9fa; /* Optional background color */
-    border-bottom: 1px solid #ddd; /* Optional border for visual separation */
-    box-sizing: border-box; /* Ensure consistent padding and border behavior */
+    background-color: #f8f9fa; /* Light background */
+    border-bottom: 1px solid #ddd; /* Border for visual separation */
+    flex-wrap: wrap; /* Allow wrapping for small screens */
+    box-sizing: border-box; /* Consistent box model */
 }
 
-/* Header name styling */
+/* Header title styling */
 #header h1 {
     margin: 0;
     font-size: 24px; /* Adjust font size */
@@ -17,28 +18,27 @@
 }
 
 #header h1 a {
-    text-decoration: none;
+    text-decoration: none; /* Remove underline */
     color: #333; /* Text color */
 }
 
-/* Navigation bar container */
+/* Navigation bar styling */
 .topnav {
-    display: flex; /* Flexbox for inline navigation links */
-    flex-wrap: nowrap; /* Prevent wrapping unless in smaller screens */
-    gap: 15px; /* Spacing between links */
-    overflow: hidden; /* Prevent overflow on small screens */
-    align-items: center; /* Align items vertically in the row */
+    display: flex; /* Inline flexbox navigation */
+    gap: 15px; /* Space between links */
+    flex-wrap: wrap; /* Allow wrapping if space runs out */
+    justify-content: center; /* Center links in small screens */
 }
 
 .topnav a {
-    color: #f2f2f2;
+    color: #f2f2f2; /* Light text color */
+    background-color: #8a8a8a; /* Background color */
     text-align: center;
     padding: 10px 14px; /* Adjust padding for clickable area */
-    text-decoration: none;
-    font-size: 17px;
-    background-color: #8a8a8a; /* Background color */
+    text-decoration: none; /* Remove underline */
+    font-size: 17px; /* Font size */
     border-radius: 4px; /* Rounded corners */
-    transition: background-color 0.3s, color 0.3s; /* Smooth hover effects */
+    transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
 }
 
 .topnav a:hover {
@@ -51,21 +51,19 @@
     color: white;
 }
 
-/* Responsive design for smaller screens */
+/* Responsive design for small screens */
 @media (max-width: 550px) {
     #header {
-        flex-direction: column; /* Stack header elements vertically */
+        flex-direction: column; /* Stack header elements */
         align-items: center; /* Center align items */
         text-align: center;
     }
 
     .topnav {
-        flex-wrap: wrap; /* Wrap navigation links */
-        justify-content: center; /* Center links */
-        gap: 10px; /* Adjust spacing between links */
+        justify-content: center; /* Center navigation links */
     }
 
     #header h1 {
-        margin-bottom: 10px; /* Add spacing between title and navigation */
+        margin-bottom: 10px; /* Add space between title and navigation */
     }
 }
