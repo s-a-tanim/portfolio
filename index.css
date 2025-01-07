@@ -42,6 +42,7 @@ h2 { font-weight: normal;}
 .topnav {
     background-color: #8a8a8a;
     overflow: hidden;
+    white-space: nowrap; /* Prevent links from wrapping */
   }
   
   .topnav a {
@@ -51,6 +52,7 @@ h2 { font-weight: normal;}
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    box-sizing: border-box; /* Ensure padding doesn't cause layout issues */
   }
   
   .topnav a:hover {
