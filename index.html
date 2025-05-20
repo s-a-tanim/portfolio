@@ -172,16 +172,15 @@
             margin-bottom: 25px;
         }
         
-        #pic img {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            /* Changed from border-radius: 50% to make it square */
-            border-radius: 6px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border: 3px solid var(--card-bg);
-            transition: all 0.3s ease;
-        }
+       #pic img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain; /* Changed from 'cover' to 'contain' */
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--card-bg);
+    transition: all 0.3s ease;
+}
         
         #about_text {
             text-align: left;
