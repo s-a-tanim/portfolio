@@ -3,28 +3,287 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contact - Sharia Arfin Tanim</title>
-    <link rel="stylesheet" type="text/css" href="common.css"/>
-    <link rel="stylesheet" type="text/css" href="index.css"/>
+    <title>Interview - Sharia Arfin Tanim</title>
+    <style>
+        /* Base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        :root {
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --card-bg: #fff;
+            --header-color: #222;
+            --border-color: #eee;
+            --section-title-color: #222;
+            --link-color: #3d5afe;
+            --link-hover: #304ffe;
+            --footer-bg: #f8f9fa;
+            --footer-color: #888;
+            --box-shadow-color: rgba(0, 0, 0, 0.05);
+            --line-color: #eee;
+            --h2-color: #3d5afe;
+            --strong-color: #444;
+        }
+        
+        .dark-mode {
+            --text-color: #e0e0e0;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --header-color: #ffffff;
+            --border-color: #333;
+            --section-title-color: #ffffff;
+            --link-color: #738ffe;
+            --link-hover: #a2b8ff;
+            --footer-bg: #181818;
+            --footer-color: #aaa;
+            --box-shadow-color: rgba(0, 0, 0, 0.2);
+            --line-color: #333;
+            --h2-color: #738ffe;
+            --strong-color: #e0e0e0;
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: all 0.3s ease;
+        }
+        
+        #background {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            box-shadow: 0 10px 30px var(--box-shadow-color);
+            transition: all 0.3s ease;
+        }
+        
+        #foreground {
+            padding: 30px 20px;
+        }
+        
+        #main {
+            width: 100%;
+        }
+        
+        /* Header styles */
+        #header {
+            text-align: center;
+            padding: 20px 0 30px;
+            position: relative; /* Important for positioning the theme toggle */
+        }
+        
+        #header h1 {
+            margin-bottom: 25px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        #header h1 a {
+            color: var(--header-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        #header h1 a:hover {
+            color: var(--link-color);
+        }
+        
+        /* Theme Toggle Button - THIS IS WHERE THE TOGGLE SHOULD BE ADDED */
+        #theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--link-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        #theme-toggle:hover {
+            background-color: var(--link-hover);
+            transform: translateY(-2px);
+        }
+        
+        #theme-toggle i {
+            font-size: 14px;
+        }
+        
+        /* Navigation */
+        .topnav {
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+            margin-bottom: 30px;
+        }
+        
+        .topnav a {
+            display: block;
+            color: var(--text-color);
+            text-align: center;
+            padding: 12px 18px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+        
+        .topnav a:hover {
+            background-color: rgba(61, 90, 254, 0.1);
+            color: var(--link-color);
+        }
+        
+        .topnav a.active {
+            background-color: var(--link-color);
+            color: white;
+        }
+        
+        /* Line separator */
+        .line {
+            height: 1px;
+            background-color: var(--line-color);
+            margin: 30px 0;
+        }
+        
+        /* Interview specific styles */
+        header h1 {
+            color: var(--header-color);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        main {
+            padding: 0 20px;
+        }
+        
+        section {
+            margin-bottom: 30px;
+        }
+        
+        section h2 {
+            color: var(--h2-color);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        section p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        
+        section ul {
+            list-style-position: inside;
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        
+        section ul li {
+            margin-bottom: 10px;
+        }
+        
+        section strong {
+            color: var(--strong-color);
+            font-weight: 600;
+        }
+        
+        section a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        section a:hover {
+            color: var(--link-hover);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--footer-color);
+            background-color: var(--footer-bg);
+            border-top: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        /* Media queries for responsive design */
+        @media screen and (min-width: 768px) {
+            #foreground {
+                padding: 50px;
+            }
+            
+            main {
+                padding: 0;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media screen and (max-width: 600px) {
+            .topnav {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .topnav a {
+                width: 100%;
+            }
+            
+            #theme-toggle {
+                top: 10px;
+                right: 10px;
+                padding: 6px 12px;
+                font-size: 14px;
+            }
+            
+            header h1 {
+                font-size: 1.6rem;
+                margin-top: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-<div id=background>
-<div id=foreground>
-<div id=main>
-    <div id=header>
+<div id="background">
+<div id="foreground">
+<div id="main">
+    <div id="header">
         <h1><a href="index.html">Sharia Arfin Tanim</a></h1>
+        
+        <!-- THEME TOGGLE BUTTON GOES HERE -->
+        <button id="theme-toggle">
+            <i id="theme-icon">🌙</i>
+            <span id="theme-text">Dark Mode</span>
+        </button>
+        
         <div class="topnav">
             <a href="index.html">Home</a>
              <a href="https://s-a-tanim.github.io/project/">My Project</a>
             <a href="publications.html">Publications</a>
             <a href="activities.html">Activities</a>
-            <a  href="contact.html">Contact</a>
-<!--             <a href="cv.html">CV</a> -->
+            <a class="active" href="contact.html">Contact</a>
         </div> 
     </div>
-<div class=line></div>
-<!-- <body> -->
+<div class="line"></div>
+
   <header>
     <h1>Interview with Sharia Arfin Tanim</h1>
   </header>
@@ -103,7 +362,7 @@
         and maintain collaboration with others. Nurture your passion while also taking care of yourself.
       </p>
       <p>
-        As Marie Curie once said, “Nothing in life is to be feared; it is only to be understood.” Your work is valuable—keep moving forward! Best of luck.
+        As Marie Curie once said, "Nothing in life is to be feared; it is only to be understood." Your work is valuable—keep moving forward! Best of luck.
       </p>
     </section>
     <section>
@@ -116,8 +375,43 @@
       </ul>
     </section>
   </main>
-</body>
-     <footer style="text-align: center; padding: 20px;">
+</div>
+</div>
+
+<footer>
   <p>&copy; 2025 Learnify Research Lab. All rights reserved.</p>
 </footer>
+</div>
+
+<script>
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const themeText = document.getElementById('theme-text');
+    
+    // Check for saved theme preference or default to light mode
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeIcon.innerText = '☀️';
+        themeText.innerText = 'Light Mode';
+    }
+    
+    // Toggle theme on button click
+    themeToggle.addEventListener('click', () => {
+        // Toggle dark mode class on body
+        document.body.classList.toggle('dark-mode');
+        
+        // Update button icon and text
+        if (document.body.classList.contains('dark-mode')) {
+            themeIcon.innerText = '☀️';
+            themeText.innerText = 'Light Mode';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            themeIcon.innerText = '🌙';
+            themeText.innerText = 'Dark Mode';
+            localStorage.setItem('theme', 'light');
+        }
+    });
+</script>
+</body>
 </html>
