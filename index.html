@@ -1,118 +1,421 @@
 <!doctype html>
-
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sharia Arfin Tanim</title>
-    <link rel="stylesheet" type="text/css" href="common.css"/>
-    <link rel="stylesheet" type="text/css" href="index.css"/>
+    <style>
+        /* Base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        #background {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        #foreground {
+            padding: 30px 20px;
+        }
+        
+        #main {
+            width: 100%;
+        }
+        
+        /* Header styles */
+        #header {
+            text-align: center;
+            padding: 20px 0 30px;
+        }
+        
+        #header h1 {
+            margin-bottom: 25px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        #header h1 a {
+            color: #222;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        #header h1 a:hover {
+            color: #3d5afe;
+        }
+        
+        /* Navigation */
+        .topnav {
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+            margin-bottom: 30px;
+        }
+        
+        .topnav a {
+            display: block;
+            color: #444;
+            text-align: center;
+            padding: 12px 18px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+        
+        .topnav a:hover {
+            background-color: rgba(61, 90, 254, 0.05);
+            color: #3d5afe;
+        }
+        
+        .topnav a.active {
+            background-color: #3d5afe;
+            color: white;
+        }
+        
+        /* Line separator */
+        .line {
+            height: 1px;
+            background-color: #eee;
+            margin: 30px 0;
+        }
+        
+        /* About section */
+        #about {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        #pic {
+            margin-bottom: 25px;
+        }
+        
+        #pic img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+            border: 3px solid #fff;
+        }
+        
+        #about_text {
+            text-align: left;
+            margin-bottom: 25px;
+            color: #444;
+            font-size: 16px;
+        }
+        
+        #about a, a {
+            color: #3d5afe;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        #about a:hover, a:hover {
+            color: #304ffe;
+            text-decoration: none;
+        }
+        
+        /* CV Button */
+        .cv-button {
+            display: inline-block;
+            padding: 10px 24px;
+            background-color: #3d5afe;
+            color: white !important;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+            border: none;
+            box-shadow: 0 2px 8px rgba(61, 90, 254, 0.2);
+        }
+        
+        .cv-button:hover {
+            background-color: #304ffe;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(61, 90, 254, 0.3);
+        }
+        
+        /* Section title */
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 30px 0 20px;
+            color: #222;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #3d5afe;
+        }
+        
+        /* Lists */
+        #research_list, #TechnicalExpertise ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        #research_list li {
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        #research_list li:last-child {
+            border-bottom: none;
+        }
+        
+        #research_list li a {
+            font-weight: 600;
+            font-size: 17px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+        
+        #TechnicalExpertise ul li {
+            margin-bottom: 15px;
+            padding-left: 0;
+        }
+        
+        #TechnicalExpertise strong {
+            color: #333;
+            font-weight: 600;
+        }
+        
+        /* Sections */
+        section {
+            margin-bottom: 40px;
+        }
+        
+        section h3 {
+            margin-bottom: 20px;
+            color: #222;
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+        
+        section h4 {
+            margin-bottom: 12px;
+            color: #333;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        .footer-note {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px 0;
+            font-size: 0.85rem;
+            color: #888;
+            background-color: #f8f9fa;
+            border-top: 1px solid #eee;
+        }
+        
+        /* Research Profile Links */
+        .profile-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .profile-links a {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background-color: #f5f5ff;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-size: 15px;
+        }
+        
+        .profile-links a:hover {
+            background-color: #e8eaff;
+            transform: translateY(-2px);
+        }
+        
+        /* Media queries for responsive design */
+        @media screen and (min-width: 768px) {
+            #about {
+                flex-direction: row;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
+            
+            #pic {
+                flex: 0 0 200px;
+                margin-right: 40px;
+                margin-bottom: 0;
+            }
+            
+            #about_text {
+                flex: 1;
+            }
+            
+            #foreground {
+                padding: 50px;
+            }
+            
+            .profile-links {
+                gap: 15px;
+            }
+        }
+        
+        @media screen and (max-width: 600px) {
+            .topnav {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .topnav a {
+                width: 100%;
+            }
+            
+            .section-title {
+                font-size: 1.2rem;
+            }
+            
+            #header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-<div id=background>
-<div id=foreground>
-<div id=main>
+    <div id="background">
+        <div id="foreground">
+            <div id="main">
+                <div id="header">
+                    <h1><a href="index.html">Sharia Arfin Tanim</a></h1>
+                    <div class="topnav">
+                        <a class="active" href="index.html">Home</a>
+                        <a href="https://s-a-tanim.github.io/project/">My Project</a>
+                        <a href="publications.html">Publications</a>
+                        <a href="activities.html">Activities</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+                <div class="line"></div>
 
-    <div id="header">
-    <h1><a href="index.html">Sharia Arfin Tanim</a></h1>
-    <div class="topnav">
-        <a class="active" href="index.html">Home</a>
-        <a href="https://s-a-tanim.github.io/project/">My Project</a>
-        <a href="publications.html">Publications</a>
-        <a href="activities.html">Activities</a>
-        <a href="contact.html">Contact</a>
-<!--         <a href="cv.html">CV</a> -->
-    </div> 
-</div>
-<div class=line></div>
+                <div id="about">
+                    <div id="pic"><img src="images/Sharia Arfin Tanim.jpg" alt="Sharia Arfin Tanim"/></div>
+                    <div id="about_text">
+                        I am a motivated and passionate researcher seeking to pursue a master's degree in Computer Science. I am a Research Assistant (RA) at Advanced Machine Intelligence Research Lab <a href="https://amirl.org" target="_blank">(AMIR Lab)</a>. I received a BSc in <a href="https://www.aiub.edu/faculties/fst/programs/under-graduate/bachelor-of-science-in-computer-science--engineering" target="_blank">Computer Science and Engineering</a> from American International University-Bangladesh <a href="https://www.aiub.edu" target="_blank">(AIUB)</a>. My research focuses on machine learning and computer vision, particularly in secure federated learning and model transparency interoperability. 
+                        I aim to apply these innovations to significant global challenges, including improving data privacy in climate-related research and fostering interoperability among diverse datasets. By examining the intersection of technology and sustainability, I seek to contribute to effective solutions for critical issues such as biodiversity conservation and climate resilience.
+                        <br><br>
+                        Additionally, I founded <a href="https://learnifyresearchlab.com" target="_blank">Learnify Research Lab</a>, where we collaborate with students in Bangladesh who are interested in conducting research and work to spread research interests among them.
+                    </div>
+                </div>
+                
+                <p style="text-align: center; margin-bottom: 30px;">
+                    <a href="cv.html" class="cv-button">View CV</a>
+                </p>
+                
+                <div class="section-title">PROFESSIONAL EXPERIENCE</div>
+                <ul id="research_list">
+                    <li>
+                        <a href="https://amirl.org" target="_blank">Advanced Machine Intelligence Research Lab (AMIR Lab)</a><br>
+                        Research Assistant<br>
+                        Dec. 2023 - Present
+                    </li>
+                    <li>
+                        <a href="https://learnifyresearchlab.com" target="_blank">Learnify Research Lab</a><br>
+                        Founder & Research Director<br>
+                        Dec. 2023 - Present
+                    </li>
+                    <li>
+                        <a href="https://gaotek.com" target="_blank">GAO Tek Inc</a><br>
+                        IT Support & Development<br>
+                        Sept. 2023 - Dec. 2023
+                    </li>
+                    <li>
+                        <a href="https://www.aiub.edu/files/research/gf/groups/department_of_computer_science/ubiquitous_cloud_and_human-computer_interaction_uch_research_group.html" target="_blank">(UCH) Research Group - AIUB</a><br>
+                        Student Research Assistant<br>
+                        Jun. 2023 - Sept. 2023
+                    </li>
+                </ul>
 
+                <section id="TechnicalExpertise">
+                    <h3>Technical Expertise</h3>
+                    <ul>
+                        <li>
+                            <strong>Analytical Tools:</strong> Pandas, NumPy, Tableau, Matplotlib, Jupyter Notebook, Kaggle
+                        </li>
+                        <li>
+                            <strong>Programming Languages:</strong> C++, Python, R, SQL, LaTeX
+                        </li>
+                        <li>
+                            <strong>Frameworks:</strong> TensorFlow, Keras, PyTorch
+                        </li>
+                        <li>
+                            <strong>Networking Skills:</strong> Cisco tools, Application Layer Protocols (HTTP, FTP, DNS, SMTP), 
+                            TCP/UDP (Congestion & Flow Control), IPv4 Addressing, Routing, CRC
+                        </li>
+                    </ul>
+                </section>
+                
+                <div class="line"></div>
+                
+                <section id="interviews-features">
+                    <h3>Interviews & Features</h3>
+                    <article>
+                        <h4>Young Scientists Interviews: Sharia Arfin Tanim</h4>
+                        <p>
+                            Read my feature interview in <em>"Young Scientists Interviews"</em>, where I discuss my research journey, contributions to AI, and the founding of Learnify Research Lab.
+                        </p>
+                        <p>
+                            The interview is available in Bengali (native language). For the English version, 
+                            <a href="interview.html" target="_blank" rel="noopener noreferrer">click here</a>.
+                        </p>
+                        <p>
+                            <a href="https://biggani.org/sharia-arfin-tanim/" target="_blank" rel="noopener noreferrer">Click here to read the Bengali version</a>.
+                        </p>
+                    </article>
+                </section>
 
-<div id=about>
-    <div id=pic><img style="width:180px" src="images/Sharia Arfin Tanim.jpg"/></div>
-    <div id=about_text>
-        I am a motivated and passionate researcher seeking to pursue a master’s degree in Computer Science. I am a Research Assistant (RA) at Advanced Machine Intelligence Research Lab <a href=https://amirl.org>(AMIR Lab)</a>. I received a BSc in <a href=https://www.aiub.edu/faculties/fst/programs/under-graduate/bachelor-of-science-in-computer-science--engineering>Computer Science and Engineering</a> American International University-Bangladesh from the <a href=https://www.aiub.edu>(AIUB)</a>. My research focuses on machine learning and computer vision, particularly in secure federated learning and model transparency interoperability. 
-        I aim to apply these innovations to significant global challenges, including improving data privacy in climate-related research and fostering interoperability among diverse datasets. By examining the intersection of technology and sustainability, I seek to contribute to effective solutions for critical issues such as biodiversity conservation and climate resilience.
-        <br><br>
-        Additionally, I founded <a href=https://learnifyresearchlab.com>Learnify Research Lab</a>, where we collaborate with students in Bangladesh who are interested in conducting research and work to spread research interests among them.
+                <div class="section-title">Research Profile</div>
+                <div class="profile-links">
+                    <a href="https://scholar.google.com/citations?user=NQheHn0AAAAJ&hl=en" target="_blank">Google Scholar</a>
+                    <a href="https://www.researchgate.net/profile/Sharia-Tanim-2" target="_blank">ResearchGate</a>
+                    <a href="https://github.com/s-a-tanim" target="_blank">GitHub</a>
+                    <a href="https://www.scopus.com/authid/detail.uri?authorId=58535540200" target="_blank">Scopus</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-note">
+            <small>Last updated: May 20, 2025</small>
+        </div>
     </div>
-    <p>
-       <a href="cv.html"; text-decoration: none; font-weight: bold;>Show CV</a>
-    </p>
-</div>
-    
-<div class="section-title">PROFESSIONAL EXPERIENCE</div>
-<ul id="research_list">
-    <li>
-        <a href="https://amirl.org" target="_blank">Advanced Machine Intelligence Research Lab (AMIR Lab)</a><br>
-        Research Assistant<br>
-        Dec. 2023 - Present
-    </li>
-    <li>
-        <a href="https://learnifyresearchlab.com" target="_blank">Learnify Research Lab</a><br>
-        Founder & Research Director<br>
-        Dec. 2023 - Present
-    </li>
-    <li>
-        <a href="https://gaotek.com" target="_blank">GAO Tek Inc</a><br>
-        IT Support & Development<br>
-        Sept. 2023 - Dec. 2023
-    </li>
-    <li>
-        <a href="https://www.aiub.edu/files/research/gf/groups/department_of_computer_science/ubiquitous_cloud_and_human-computer_interaction_uch_research_group.html" target="_blank">(UCH) Research Group - AIUB</a><br>
-        Student Research Assistant<br>
-        Jun. 2023 - Sept. 2023
-    </li>
-</ul>
-
-    <section id="TechnicalExpertise">
-    <h3>Technical Expertise</h3>
-    <ul>
-        <li>
-            <strong>Analytical Tools:</strong> Pandas, NumPy, Tableau, Matplotlib, Jupyter Notebook, Kaggle
-        </li>
-        <li>
-            <strong>Programming Languages:</strong> C++, Python, R, SQL, LaTeX
-        </li>
-        <li>
-            <strong>Frameworks:</strong> TensorFlow, Keras, PyTorch
-        </li>
-        <li>
-            <strong>Networking Skills:</strong> Cisco tools, Application Layer Protocols (HTTP, FTP, DNS, SMTP), 
-            TCP/UDP (Congestion & Flow Control), IPv4 Addressing, Routing, CRC
-        </li>
-    </ul>
-    </section>
-<div class=line></div>
- <section id="interviews-features">
-  <h3>Interviews & Features</h3>
-  <article>
-    <h4>Young Scientists Interviews: Sharia Arfin Tanim</h4>
-    <p>
-      Read my feature interview in <em>"Young Scientists Interviews"</em>, where I discuss my research journey, contributions to AI, and the founding of Learnify Research Lab.
-    </p>
-    <p>
-      The interview is available in Bengali (native language). For the English version, 
-      <a href="interview.html" target="_blank" rel="noopener noreferrer">click here</a>.
-    </p>
-    <p>
-      <a href="https://biggani.org/sharia-arfin-tanim/" target="_blank" rel="noopener noreferrer">Click here to read the Bengali version</a>.
-    </p>
-  </article>
-</section>
-
-
-    
-    <div class=section-title>Research Profile</div>
-     <a href="https://scholar.google.com/citations?user=NQheHn0AAAAJ&hl=en">Google scholar</a><br>
-     <a href="https://www.researchgate.net/profile/Sharia-Tanim-2">Research gate</a><br>
-     <a href="https://github.com/s-a-tanim">GitHub</a><br>
-    <a href="https://www.scopus.com/authid/detail.uri?authorId=58535540200">Scopes</a><br>
-</div>
-</div>
-    <!-- Last updated note -->
-<div style="text-align: center; margin-top: 20px;">
-    <small>Last updated: Mar. 4, 2025</small>
-</div>
 </body>
 </html>
