@@ -6,120 +6,268 @@
     <title>Activities - Sharia Arfin Tanim</title>
     <link rel="stylesheet" type="text/css" href="common.css"/>
     <link rel="stylesheet" type="text/css" href="index.css"/>
+    <style>
+        /* Modern theme styling */
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #background {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        #foreground {
+            padding: 2rem;
+        }
+        
+        #header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        #header h1 {
+            margin: 0;
+            padding: 1rem 0;
+        }
+        
+        #header h1 a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        #header h1 a:hover {
+            color: #3498db;
+        }
+        
+        .topnav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        
+        .topnav a {
+            display: inline-block;
+            padding: 0.8rem 1.2rem;
+            margin: 0 0.3rem;
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .topnav a:hover {
+            background-color: #f1f1f1;
+            color: #3498db;
+        }
+        
+        .topnav a.active {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .line {
+            border-bottom: 1px solid #e0e0e0;
+            margin: 1rem 0 2rem 0;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c3e50;
+            text-align: center;
+            margin: 2rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+            display: inline-block;
+        }
+        
+        #activities {
+            padding: 1rem 0;
+        }
+        
+        #activities_list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        #activities_list h3 {
+            color: #2c3e50;
+            margin-top: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+        
+        #activities_list ul {
+            list-style: disc;
+            padding-left: 2rem;
+        }
+        
+        #activities_list li {
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        #activities_list a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        #activities_list a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        
+        section {
+            margin: 2rem 0;
+        }
+        
+        @media screen and (max-width: 768px) {
+            #foreground {
+                padding: 1rem;
+            }
+            
+            .topnav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .topnav a {
+                width: 90%;
+                text-align: center;
+                margin: 0.2rem 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
-<div id=background>
-<div id=foreground>
-<div id=main>
-    <div id=header>
+<div id="background">
+<div id="foreground">
+<div id="main">
+    <div id="header">
         <h1><a href="index.html">Sharia Arfin Tanim</a></h1>
         <div class="topnav">
             <a href="index.html">Home</a>
-             <a href="https://s-a-tanim.github.io/project/">My Project</a>
+            <a href="https://s-a-tanim.github.io/project/">My Project</a>
             <a href="publications.html">Publications</a>
             <a class="active" href="activities.html">Activities</a>
             <a href="contact.html">Contact</a>
-<!--             <a href="cv.html">CV</a> -->
         </div> 
     </div>
-<div class=line></div>
+<div class="line"></div>
 
 <div class="section-title">ACTIVITIES</div><br>
 
             <div id="activities">
 
                 <ul id="activities_list">
-                    <h3>Sinchan Education and Rural Entrepreneurship Foundation (<a href=https://sinchan.co.in/>SINCHAN</a>) (Jan. 2024- Mar. 2024)</h3>
+                    <h3>Sinchan Education and Rural Entrepreneurship Foundation (<a href="https://sinchan.co.in/">SINCHAN</a>) (Jan. 2024- Mar. 2024)</h3>
                     <ul>
                         <li>
-                            Worked on 'Project Kurumutu' conducted skill development classes for a student from a marginalized background.<br><br>
+                            Worked on 'Project Kurumutu' conducted skill development classes for a student from a marginalized background.
                         </li>
                         <li>
-                            Contributed insightful feedback during team meetings, significantly benefiting the project.<br><br>
+                            Contributed insightful feedback during team meetings, significantly benefiting the project.
                         </li>
                         <li>
-                            Engaged in potentially transformative experiences for the student, supporting their growth and development.<br><br>
+                            Engaged in potentially transformative experiences for the student, supporting their growth and development.
                         </li>
                     </ul>
                     
-                    <h3><a href=https://earth5r.org/>EARTH5R</a> – Environmental Sustainability Internship & Lifelong Volunteer</h3>
+                    <h3><a href="https://earth5r.org/">EARTH5R</a> – Environmental Sustainability Internship & Lifelong Volunteer</h3>
                     <ul>
                         <li>
-                            Contributed to sustainability projects on waste management, climate action, and renewable energy.<br><br>
+                            Contributed to sustainability projects on waste management, climate action, and renewable energy.
                         </li>
                         <li>
-                            Continue as a lifelong volunteer, supporting EARTH5R’s mission through ongoing environmental projects and advocacy efforts.<br><br>
+                            Continue as a lifelong volunteer, supporting EARTH5R's mission through ongoing environmental projects and advocacy efforts.
                         </li>
                     </ul>
-                       <h3>NFT Creation and Exhibition on OpenSea </h3>
+                    
+                    <h3>NFT Creation and Exhibition on OpenSea</h3>
                     <ul>
                         <li>
                             Designed and launched a unique NFT collection. Published on OpenSea using blockchain to verify authenticity and
-ownership. Actively engaged with the community to promote and market the collection by gaining firsthand experience
-in the decentralized art space.<br><br>
+                            ownership. Actively engaged with the community to promote and market the collection by gaining firsthand experience
+                            in the decentralized art space.
                         </li>
                     </ul>
+                    
                     <section id="AcademicPresentations">
-    <h3>Academic Presentations</h3>
-    <ul>
-        <li>
-            Certificate of Participation for presenting the paper titled 
-            <em>"Improving Biomedical Image Segmentation: An Extensive Analysis of U-Net for Enhanced Performance"</em>.
-            <a href="https://drive.google.com/file/d/1q7IjvCJbJjaR8roh8KGavlnzOcayFfCL/view" target="_blank">Show Credential</a><br><br>
-        </li>
-        <li>
-            Certificate of Presentation for the paper titled 
-            <em>"Enhancing Blood Cell Classification by Applying Big Transfer and XAI"</em>.
-            <a href="https://drive.google.com/file/d/10AClmSrUUctCjZYwitccQhJbChERVe1u/view" target="_blank">Show Credential</a><br><br>
-        </li>
-        <li>
-            Certificate of Presentation for the paper titled 
-            <em>"Deep Learning Approach with eXplainable Artificial Intelligence Interpretation for Early-Stage Diabetes Detection"</em>.
-            <a href="https://drive.google.com/file/d/1Gw3NJLYGjt1mHFOLbWNElYUiX_2hvTLA/view" target="_blank">Show Credential</a><br><br>
-        </li>
-        <li>
-            Certificate of Presentation for the paper titled 
-            <em>"Single-Level Fusion for Enhancing Meat Quality Classification with Explainable AI"</em>.
-            <a href="https://drive.google.com/file/d/1WDOmorg33a46C6IdEhSOIA9kF6wi27Ww/view" target="_blank">Show Credential</a><br><br>
-        </li>
-    </ul>
-</section>
+                        <h3>Academic Presentations</h3>
+                        <ul>
+                            <li>
+                                Certificate of Participation for presenting the paper titled 
+                                <em>"Improving Biomedical Image Segmentation: An Extensive Analysis of U-Net for Enhanced Performance"</em>.
+                                <a href="https://drive.google.com/file/d/1q7IjvCJbJjaR8roh8KGavlnzOcayFfCL/view" target="_blank">Show Credential</a>
+                            </li>
+                            <li>
+                                Certificate of Presentation for the paper titled 
+                                <em>"Enhancing Blood Cell Classification by Applying Big Transfer and XAI"</em>.
+                                <a href="https://drive.google.com/file/d/10AClmSrUUctCjZYwitccQhJbChERVe1u/view" target="_blank">Show Credential</a>
+                            </li>
+                            <li>
+                                Certificate of Presentation for the paper titled 
+                                <em>"Deep Learning Approach with eXplainable Artificial Intelligence Interpretation for Early-Stage Diabetes Detection"</em>.
+                                <a href="https://drive.google.com/file/d/1Gw3NJLYGjt1mHFOLbWNElYUiX_2hvTLA/view" target="_blank">Show Credential</a>
+                            </li>
+                            <li>
+                                Certificate of Presentation for the paper titled 
+                                <em>"Single-Level Fusion for Enhancing Meat Quality Classification with Explainable AI"</em>.
+                                <a href="https://drive.google.com/file/d/1WDOmorg33a46C6IdEhSOIA9kF6wi27Ww/view" target="_blank">Show Credential</a>
+                            </li>
+                        </ul>
+                    </section>
+                    
                     <section id="ResearchGrants">
-    <h3>Research Grants</h3>
-    <ul>
-        <li>
-            Grant Number: <strong>RSPD2024R1027</strong>, 
-            <em>"Secure Federated Learning for Parkinson’s Disease: Non-IID Data Partitioning and Homomorphic Encryption Strategies."</em>
-            King Saud University, Saudi Arabia (2024).<br><br>
-        </li>
-        <li>
-            Grant Number: <strong>RSPD2024R890</strong>, 
-            <em>"Generative AI and XAI for Surface-Level Fire Detection Using Text-to-Image Stable Diffusion."</em>
-            King Saud University, Saudi Arabia (2024).<br><br>
-        </li>
-    </ul>
-</section>
-<section id="ProfessionalRecognition">
-    <h3>Professional Recognition</h3>
-    <ul>
-          <il>
-            Ranked in the AD Scientific Index 2025: World Scientist and University Rankings.
-             <a href="https://drive.google.com/file/d/1ga_Lyqs3P3QVSRgP6vqo-IHTeGKKgzzc/view?usp=sharing" target="_blank">Show Certificate</a><br><br>
-        </il>
-        <li>
-            BP International in 2024 recognized for outstanding contributions to the quality of academic content 
-            (Book Chapter). 
-            <a href="https://drive.google.com/file/d/1_McYBS2V18_-i8HGY_ebZBWyHQCw2t7X/view" target="_blank">Show Certificate</a><br><br>
-        </li>
-        <li>
-            Completion of <em>Data Analysis with Python</em> Course (with Distinction). 
-            <a href="https://drive.google.com/file/d/1Z37JhnxZfwhvrh69S4eUE2R-WhFe13eo/view" target="_blank">Show Certificate</a><br><br>
-        </li>
-    </ul>
-</section>
-
-
+                        <h3>Research Grants</h3>
+                        <ul>
+                            <li>
+                                Grant Number: <strong>RSPD2024R1027</strong>, 
+                                <em>"Secure Federated Learning for Parkinson's Disease: Non-IID Data Partitioning and Homomorphic Encryption Strategies."</em>
+                                King Saud University, Saudi Arabia (2024).
+                            </li>
+                            <li>
+                                Grant Number: <strong>RSPD2024R890</strong>, 
+                                <em>"Generative AI and XAI for Surface-Level Fire Detection Using Text-to-Image Stable Diffusion."</em>
+                                King Saud University, Saudi Arabia (2024).
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <section id="ProfessionalRecognition">
+                        <h3>Professional Recognition</h3>
+                        <ul>
+                            <li>
+                                Ranked in the AD Scientific Index 2025: World Scientist and University Rankings.
+                                <a href="https://drive.google.com/file/d/1ga_Lyqs3P3QVSRgP6vqo-IHTeGKKgzzc/view?usp=sharing" target="_blank">Show Certificate</a>
+                            </li>
+                            <li>
+                                BP International in 2024 recognized for outstanding contributions to the quality of academic content 
+                                (Book Chapter). 
+                                <a href="https://drive.google.com/file/d/1_McYBS2V18_-i8HGY_ebZBWyHQCw2t7X/view" target="_blank">Show Certificate</a>
+                            </li>
+                            <li>
+                                Completion of <em>Data Analysis with Python</em> Course (with Distinction). 
+                                <a href="https://drive.google.com/file/d/1Z37JhnxZfwhvrh69S4eUE2R-WhFe13eo/view" target="_blank">Show Certificate</a>
+                            </li>
+                        </ul>
+                    </section>
                 </ul>
             </div>
         </div>
