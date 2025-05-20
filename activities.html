@@ -12,18 +12,52 @@
             padding: 0;
         }
         
+        :root {
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --card-bg: #fff;
+            --header-color: #222;
+            --border-color: #eee;
+            --section-title-color: #222;
+            --link-color: #3d5afe;
+            --link-hover: #304ffe;
+            --footer-bg: #f8f9fa;
+            --footer-color: #888;
+            --box-shadow-color: rgba(0, 0, 0, 0.05);
+            --line-color: #eee;
+            --h3-color: #222;
+        }
+        
+        .dark-mode {
+            --text-color: #e0e0e0;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --header-color: #ffffff;
+            --border-color: #333;
+            --section-title-color: #ffffff;
+            --link-color: #738ffe;
+            --link-hover: #a2b8ff;
+            --footer-bg: #181818;
+            --footer-color: #aaa;
+            --box-shadow-color: rgba(0, 0, 0, 0.2);
+            --line-color: #333;
+            --h3-color: #ffffff;
+        }
+        
         body {
             font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.7;
-            color: #333;
-            background-color: #f8f9fa;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: all 0.3s ease;
         }
         
         #background {
             max-width: 1000px;
             margin: 0 auto;
-            background: #fff;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            background: var(--card-bg);
+            box-shadow: 0 10px 30px var(--box-shadow-color);
+            transition: all 0.3s ease;
         }
         
         #foreground {
@@ -38,6 +72,7 @@
         #header {
             text-align: center;
             padding: 20px 0 30px;
+            position: relative; /* Important for positioning the theme toggle */
         }
         
         #header h1 {
@@ -47,13 +82,40 @@
         }
         
         #header h1 a {
-            color: #222;
+            color: var(--header-color);
             text-decoration: none;
             transition: color 0.2s ease;
         }
         
         #header h1 a:hover {
-            color: #3d5afe;
+            color: var(--link-color);
+        }
+        
+        /* Theme Toggle Button */
+        #theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--link-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        #theme-toggle:hover {
+            background-color: var(--link-hover);
+            transform: translateY(-2px);
+        }
+        
+        #theme-toggle i {
+            font-size: 14px;
         }
         
         /* Navigation */
@@ -68,7 +130,7 @@
         
         .topnav a {
             display: block;
-            color: #444;
+            color: var(--text-color);
             text-align: center;
             padding: 12px 18px;
             text-decoration: none;
@@ -79,18 +141,18 @@
         
         .topnav a:hover {
             background-color: rgba(61, 90, 254, 0.05);
-            color: #3d5afe;
+            color: var(--link-color);
         }
         
         .topnav a.active {
-            background-color: #3d5afe;
+            background-color: var(--link-color);
             color: white;
         }
         
         /* Line separator */
         .line {
             height: 1px;
-            background-color: #eee;
+            background-color: var(--line-color);
             margin: 30px 0;
         }
         
@@ -99,7 +161,7 @@
             font-size: 1.25rem;
             font-weight: 700;
             margin: 30px 0 20px;
-            color: #222;
+            color: var(--section-title-color);
             letter-spacing: 0.5px;
             text-transform: uppercase;
             position: relative;
@@ -113,7 +175,7 @@
             bottom: 0;
             width: 50px;
             height: 3px;
-            background-color: #3d5afe;
+            background-color: var(--link-color);
         }
         
         /* Activities content */
@@ -127,13 +189,13 @@
         }
         
         #activities_list h3 {
-            color: #222;
+            color: var(--h3-color);
             margin-top: 30px;
             margin-bottom: 15px;
             font-weight: 600;
             font-size: 1.3rem;
             padding-bottom: 8px;
-            border-bottom: 1px dashed #eee;
+            border-bottom: 1px dashed var(--line-color);
         }
         
         #activities_list ul {
@@ -144,17 +206,18 @@
         
         #activities_list li {
             margin-bottom: 10px;
+            color: var(--text-color);
         }
         
         #activities_list a, a {
-            color: #3d5afe;
+            color: var(--link-color);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.2s;
         }
         
         #activities_list a:hover, a:hover {
-            color: #304ffe;
+            color: var(--link-hover);
         }
         
         /* Sections */
@@ -168,9 +231,9 @@
             margin-top: 40px;
             padding: 20px 0;
             font-size: 0.85rem;
-            color: #888;
-            background-color: #f8f9fa;
-            border-top: 1px solid #eee;
+            color: var(--footer-color);
+            background-color: var(--footer-bg);
+            border-top: 1px solid var(--border-color);
         }
         
         /* Media queries for responsive design */
@@ -197,6 +260,13 @@
             #header h1 {
                 font-size: 1.8rem;
             }
+            
+            #theme-toggle {
+                top: 10px;
+                right: 10px;
+                padding: 6px 12px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -207,6 +277,13 @@
             <div id="main">
                 <div id="header">
                     <h1><a href="index.html">Sharia Arfin Tanim</a></h1>
+                    
+                    <!-- THEME TOGGLE BUTTON -->
+                    <button id="theme-toggle">
+                        <i id="theme-icon">🌙</i>
+                        <span id="theme-text">Dark Mode</span>
+                    </button>
+                    
                     <div class="topnav">
                         <a href="index.html">Home</a>
                         <a href="https://s-a-tanim.github.io/project/">My Project</a>
@@ -322,5 +399,36 @@
             <small>Last updated: May 20, 2025</small>
         </div>
     </div>
+    
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+        
+        // Check for saved theme preference or default to light mode
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeIcon.innerText = '☀️';
+            themeText.innerText = 'Light Mode';
+        }
+        
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            // Toggle dark mode class on body
+            document.body.classList.toggle('dark-mode');
+            
+            // Update button icon and text
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.innerText = '☀️';
+                themeText.innerText = 'Light Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.innerText = '🌙';
+                themeText.innerText = 'Dark Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
 </body>
 </html>
