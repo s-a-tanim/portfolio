@@ -437,7 +437,8 @@
                     </div>
                     
                     <div class="contact-form-container">
-                        <form class="contact-form" id="contact-form">
+                        <!-- Updated form with Formspree action -->
+                        <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST">
                             <div class="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" id="name" name="name" class="form-control" placeholder="Your name" required>
@@ -454,6 +455,8 @@
                                 <label for="message">Message</label>
                                 <textarea id="message" name="message" class="form-control" placeholder="Your message" required></textarea>
                             </div>
+                            <!-- Add a hidden field for recipient email -->
+                            <input type="hidden" name="_replyto" value="shariaarfin096@gmail.com">
                             <button type="submit" class="btn-submit">Send Message</button>
                             <div id="status-message"></div>
                         </form>
@@ -497,81 +500,62 @@
             }
         });
         
-        // Contact form functionality
+        // Form submission handling with Formspree
         document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+            // We don't prevent default as we want the form to actually submit to Formspree
             
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
             const statusMessage = document.getElementById('status-message');
             
-            // Email validation
+            // Email validation - additional check before submission
+            const email = document.getElementById('email').value;
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
+                e.preventDefault(); // Prevent form submission if validation fails
                 statusMessage.textContent = "Please enter a valid email address";
                 statusMessage.className = "error";
                 statusMessage.style.display = "block";
                 return;
             }
             
-            // Create formData
-            const formData = new FormData();
-            formData.append('name', name);
-            formData.append('email', email);
-            formData.append('subject', subject);
-            formData.append('message', message);
-            formData.append('recipient', 'shariaarfin096@gmail.com');
+            // Add loading state
+            const submitButton = document.querySelector('.btn-submit');
+            submitButton.textContent = "Sending...";
+            submitButton.disabled = true;
             
-            // For demonstration, this is where you would send the data to your server
-            // Using fetch to send the form data
+            // The form will be submitted to Formspree
+            // We'll handle the success/error states when the page returns from Formspree
+            // If using AJAX, you would use the Formspree AJAX API instead
+        });
+        
+        // Check for form submission response from Formspree
+        // This code runs when user returns from Formspree
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get URL parameters to check for form submission status
+            const urlParams = new URLSearchParams(window.location.search);
+            const statusMessage = document.getElementById('status-message');
             
-            // Display a success message (in a real implementation, this would only happen after successful submission)
-            statusMessage.textContent = "Thank you for your message! I'll get back to you soon.";
-            statusMessage.className = "success";
-            statusMessage.style.display = "block";
-            
-            // Reset the form
-            document.getElementById('contact-form').reset();
-            
-            // Hide the message after 5 seconds
-            setTimeout(() => {
-                statusMessage.style.display = "none";
-            }, 5000);
-            
-            // For actual implementation on your server, you would use:
-            /*
-            fetch('your-form-handler-url', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    statusMessage.textContent = "Thank you for your message! I'll get back to you soon.";
-                    statusMessage.className = "success";
-                    document.getElementById('contact-form').reset();
-                } else {
-                    statusMessage.textContent = "There was an error sending your message. Please try again.";
-                    statusMessage.className = "error";
-                }
+            if (urlParams.has('success')) {
+                // Form was submitted successfully
+                statusMessage.textContent = "Thank you for your message! I'll get back to you soon.";
+                statusMessage.className = "success";
                 statusMessage.style.display = "block";
+                document.getElementById('contact-form').reset();
                 
+                // Hide the message after 5 seconds
                 setTimeout(() => {
                     statusMessage.style.display = "none";
                 }, 5000);
-            })
-            .catch(error => {
+            } else if (urlParams.has('error')) {
+                // There was an error with the submission
                 statusMessage.textContent = "There was an error sending your message. Please try again.";
                 statusMessage.className = "error";
                 statusMessage.style.display = "block";
                 
+                // Hide the message after 5 seconds
                 setTimeout(() => {
                     statusMessage.style.display = "none";
                 }, 5000);
-            });
-            */
+            }
         });
     </script>
 </body>
