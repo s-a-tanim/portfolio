@@ -346,6 +346,78 @@
             border: 1px solid rgba(244, 67, 54, 0.3);
         }
         
+        /* CAPTCHA styling */
+        .captcha-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .captcha-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .captcha-code {
+            background-color: var(--form-bg);
+            padding: 12px 15px;
+            border: 1px solid var(--form-border);
+            border-radius: 6px;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-family: 'Courier New', monospace;
+            color: var(--text-color);
+            user-select: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .captcha-code::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 5px,
+                rgba(0, 0, 0, 0.03) 5px,
+                rgba(0, 0, 0, 0.03) 10px
+            );
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .dark-mode .captcha-code::before {
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 5px,
+                rgba(255, 255, 255, 0.03) 5px,
+                rgba(255, 255, 255, 0.03) 10px
+            );
+        }
+        
+        .refresh-captcha {
+            background-color: var(--bg-color);
+            border: 1px solid var(--form-border);
+            border-radius: 6px;
+            padding: 8px;
+            cursor: pointer;
+            color: var(--text-color);
+            transition: all 0.2s ease;
+        }
+        
+        .refresh-captcha:hover {
+            background-color: var(--profile-link-bg);
+            color: var(--link-color);
+        }
+        
         /* Media queries for responsive design */
         @media screen and (min-width: 768px) {
             #foreground {
@@ -437,7 +509,7 @@
                     </div>
                     
                     <div class="contact-form-container">
-                        <!-- Updated form with Formspree action -->
+                        <!-- Updated form with Formspree action and CAPTCHA -->
                         <form class="contact-form" id="contact-form" action="https://formspree.io/f/mqaqjnyr" method="POST">
                             <div class="form-group">
                                 <label for="name">Name</label>
@@ -455,6 +527,23 @@
                                 <label for="message">Message</label>
                                 <textarea id="message" name="message" class="form-control" placeholder="Your message" required></textarea>
                             </div>
+                            
+                            <!-- CAPTCHA verification section -->
+                            <div class="form-group">
+                                <label>CAPTCHA Verification</label>
+                                <div class="captcha-container">
+                                    <div class="captcha-box">
+                                        <div id="captcha-code" class="captcha-code">ABC123</div>
+                                        <button type="button" id="refresh-captcha" class="refresh-captcha" aria-label="Refresh CAPTCHA">
+                                            ↻
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <input type="text" id="captcha-input" name="captcha" class="form-control" placeholder="Enter the CAPTCHA code shown above" required>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <!-- Add a hidden field for recipient email -->
                             <input type="hidden" name="_replyto" value="shariaarfin096@gmail.com">
                             <button type="submit" class="btn-submit">Send Message</button>
@@ -466,7 +555,7 @@
         </div>
         
         <div class="footer-note">
-            <small>Last updated: May 20, 2025</small>
+            <small>Last updated: May 21, 2025</small>
         </div>
     </div>
 
@@ -500,37 +589,31 @@
             }
         });
         
-        // Form submission handling with Formspree
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            // We don't prevent default as we want the form to actually submit to Formspree
-            
-            const statusMessage = document.getElementById('status-message');
-            
-            // Email validation - additional check before submission
-            const email = document.getElementById('email').value;
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                e.preventDefault(); // Prevent form submission if validation fails
-                statusMessage.textContent = "Please enter a valid email address";
-                statusMessage.className = "error";
-                statusMessage.style.display = "block";
-                return;
-            }
-            
-            // Add loading state
-            const submitButton = document.querySelector('.btn-submit');
-            submitButton.textContent = "Sending...";
-            submitButton.disabled = true;
-            
-            // The form will be submitted to Formspree
-            // We'll handle the success/error states when the page returns from Formspree
-            // If using AJAX, you would use the Formspree AJAX API instead
-        });
+        // CAPTCHA functionality
+        let captchaValue = "";
         
-        // Check for form submission response from Formspree
-        // This code runs when user returns from Formspree
+        // Generate a random CAPTCHA code
+        function generateCaptcha() {
+            const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+            let captcha = "";
+            for (let i = 0; i < 6; i++) {
+                captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            captchaValue = captcha;
+            document.getElementById('captcha-code').textContent = captcha;
+        }
+        
+        // Generate CAPTCHA on page load
         document.addEventListener('DOMContentLoaded', function() {
-            // Get URL parameters to check for form submission status
+            generateCaptcha();
+            
+            // Refresh CAPTCHA on button click
+            document.getElementById('refresh-captcha').addEventListener('click', function(e) {
+                e.preventDefault();
+                generateCaptcha();
+            });
+            
+            // Check URL parameters for form submission status
             const urlParams = new URLSearchParams(window.location.search);
             const statusMessage = document.getElementById('status-message');
             
@@ -540,6 +623,7 @@
                 statusMessage.className = "success";
                 statusMessage.style.display = "block";
                 document.getElementById('contact-form').reset();
+                generateCaptcha();
                 
                 // Hide the message after 5 seconds
                 setTimeout(() => {
@@ -550,12 +634,59 @@
                 statusMessage.textContent = "There was an error sending your message. Please try again.";
                 statusMessage.className = "error";
                 statusMessage.style.display = "block";
+                generateCaptcha();
                 
                 // Hide the message after 5 seconds
                 setTimeout(() => {
                     statusMessage.style.display = "none";
                 }, 5000);
             }
+        });
+        
+        // Form submission handling with validation
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent form submission to validate CAPTCHA first
+            
+            const statusMessage = document.getElementById('status-message');
+            
+            // Email validation
+            const email = document.getElementById('email').value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                statusMessage.textContent = "Please enter a valid email address";
+                statusMessage.className = "error";
+                statusMessage.style.display = "block";
+                return;
+            }
+            
+            // Name validation - check if it contains only letters, spaces, and basic punctuation
+            const name = document.getElementById('name').value;
+            const nameRegex = /^[A-Za-z\s.',-]{2,50}$/;
+            if (!nameRegex.test(name)) {
+                statusMessage.textContent = "Please enter a valid name (2-50 characters, letters only)";
+                statusMessage.className = "error";
+                statusMessage.style.display = "block";
+                return;
+            }
+            
+            // CAPTCHA validation
+            const captchaInput = document.getElementById('captcha-input').value;
+            if (captchaInput.toUpperCase() !== captchaValue) {
+                statusMessage.textContent = "CAPTCHA verification failed. Please try again.";
+                statusMessage.className = "error";
+                statusMessage.style.display = "block";
+                generateCaptcha(); // Generate a new CAPTCHA after failed attempt
+                document.getElementById('captcha-input').value = "";
+                return;
+            }
+            
+            // Add loading state
+            const submitButton = document.querySelector('.btn-submit');
+            submitButton.textContent = "Sending...";
+            submitButton.disabled = true;
+            
+            // If all validations pass, submit the form to Formspree
+            this.submit();
         });
     </script>
 </body>
