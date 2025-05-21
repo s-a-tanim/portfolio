@@ -410,22 +410,22 @@
     z-index: 999;
     border: none;
     outline: none;
-    background: var(--scroll-btn-bg);
-    color: var(--scroll-btn-color);
+    background-color: var(--link-color);
+    color: white;
     cursor: pointer;
     width: 50px;
     height: 50px;
     font-size: 20px;
     border-radius: 50%;
     text-align: center;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease-in-out;
 }
 
 #scrollToTopBtn:hover {
-    background: var(--scroll-btn-hover);
+    background-color: var(--link-hover);
     transform: translateY(-6px) scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
 }
 
     </style>
@@ -601,7 +601,7 @@
         clearTimeout(hideTimeout);
         hideTimeout = setTimeout(() => {
             scrollToTopBtn.style.display = "none";
-        }, 3000);
+        }, 2000);
     }
 </script>
 
