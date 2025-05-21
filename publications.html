@@ -281,10 +281,37 @@
         margin-top: 10px; /* Add some space for the button above */
     }
 }
+        #scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    border: none;
+    outline: none;
+    background-color: var(--link-color);
+    color: white;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+}
+
+#scrollToTopBtn:hover {
+    background-color: var(--link-hover);
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
     </style>
 </head>
 
 <body>
+    <button id="scrollToTopBtn" title="Go to top" aria-label="Scroll to top">↑</button>
+
     <div id="background">
         <div id="foreground">
             <div id="main">
@@ -528,5 +555,35 @@
             }
         });
     </script>
+
+
+    <script>
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    let hideTimeout;
+
+    // Show the button on scroll
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+            scrollToTopBtn.style.display = "block";
+            resetHideTimer();
+        } else {
+            scrollToTopBtn.style.display = "none";
+            clearTimeout(hideTimeout);
+        }
+    });
+
+    // Scroll to top smoothly
+    scrollToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Hide button after 3 seconds of no scrolling
+    function resetHideTimer() {
+        clearTimeout(hideTimeout);
+        hideTimeout = setTimeout(() => {
+            scrollToTopBtn.style.display = "none";
+        }, 1500);
+    }
+</script>
 </body>
 </html>
