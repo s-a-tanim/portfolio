@@ -430,21 +430,11 @@
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     }
 
-    /* For mobile screens, make the button smaller and position it closer to edge */
-    @media screen and (max-width: 768px) {
-        #scrollToTopBtn {
-            bottom: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
-            font-size: 16px;
-            padding: 10px;
-        }
-    }
     </style>
 </head>
 
 <body>
+     <button id="scrollToTopBtn" title="Go to top">↑</button>
     <div id="background">
         <div id="foreground">
             <div id="main">
@@ -586,6 +576,7 @@
         });
     </script>
 
+    
     <!-- Add this JavaScript code right before the closing </body> tag, after your existing script -->
 <script>
     // Scroll to top button functionality
@@ -609,6 +600,5 @@
         });
     });
 </script>
-    <button id="scrollToTopBtn" title="Go to top">↑</button>
 </body>
 </html>
