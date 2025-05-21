@@ -236,28 +236,37 @@
             }
         }
         
-        @media screen and (max-width: 600px) {
-            .topnav {
-                flex-direction: column;
-                gap: 8px;
-            }
-            
-            .topnav a {
-                width: 100%;
-            }
-            
-            #theme-toggle {
-                top: 10px;
-                right: 10px;
-                padding: 6px 12px;
-                font-size: 14px;
-            }
-            
-            header h1 {
-                font-size: 1.6rem;
-                margin-top: 20px;
-            }
-        }
+        /* Theme Toggle Button - Original code */
+#theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--link-color);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Mobile media query fix for theme toggle button */
+@media screen and (max-width: 600px) {
+    #theme-toggle {
+        position: static; /* Change from absolute to static */
+        display: block;
+        margin: 0 auto 15px auto; /* Center the button and add margin below */
+        width: max-content; /* Make the button fit its content */
+    }
+    
+    #header h1 {
+        margin-top: 10px; /* Add some space for the button above */
+    }
+}
     </style>
 </head>
 
