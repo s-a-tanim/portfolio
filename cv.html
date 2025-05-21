@@ -161,9 +161,30 @@
         }
 
         /* Media queries for responsive design */
+       /* Media queries for responsive design */
         @media screen and (min-width: 768px) {
+            #about {
+                flex-direction: row;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
+            
+            #pic {
+                flex: 0 0 200px;
+                margin-right: 40px;
+                margin-bottom: 0;
+            }
+            
+            #about_text {
+                flex: 1;
+            }
+            
             #foreground {
                 padding: 50px;
+            }
+            
+            .profile-links {
+                gap: 15px;
             }
         }
         
