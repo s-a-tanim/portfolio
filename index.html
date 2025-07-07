@@ -146,6 +146,35 @@
             font-size: 14px;
         }
         
+        /* Flag Counter Styles - Repositioned to middle-right */
+        .flag-counter {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 12px;
+            box-shadow: 0 4px 12px var(--box-shadow-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .flag-counter:hover {
+            transform: translateY(-50%) translateX(-5px);
+            box-shadow: 0 6px 20px var(--box-shadow-color);
+        }
+        
+        .flag-counter h4 {
+            font-size: 12px;
+            color: var(--text-color);
+            margin-bottom: 8px;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
         /* Navigation */
         .topnav {
             overflow: hidden;
@@ -394,35 +423,36 @@
             }
         }
         
-/* Theme Toggle Button - Original code */
-#theme-toggle {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: var(--link-color);
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-/* Mobile media query fix for theme toggle button */
-@media screen and (max-width: 600px) {
+/* Mobile media query fix for theme toggle button and flag counter */
+@media screen and (max-width: 768px) {
     #theme-toggle {
-        position: static; /* Change from absolute to static */
+        position: static;
         display: block;
-        margin: 0 auto 15px auto; /* Center the button and add margin below */
-        width: max-content; /* Make the button fit its content */
+        margin: 0 auto 15px auto;
+        width: max-content;
     }
     
     #header h1 {
-        margin-top: 10px; /* Add some space for the button above */
+        margin-top: 10px;
+    }
+    
+    .flag-counter {
+        position: static;
+        margin: 20px auto;
+        width: max-content;
+        display: block;
+        transform: none;
+    }
+    
+    .flag-counter:hover {
+        transform: translateY(-2px);
+    }
+}
+
+/* Hide flag counter on very small screens */
+@media screen and (max-width: 480px) {
+    .flag-counter {
+        display: none;
     }
 }
 
@@ -457,6 +487,17 @@
 
 <body>
      <button id="scrollToTopBtn" title="Go to top" aria-label="Scroll to top">↑</button>
+
+    <!-- Flag Counter Widget - Now positioned in middle-right -->
+    <div class="flag-counter">
+        <h4>VISITORS</h4>
+        <a href="https://info.flagcounter.com/VwSZ">
+            <img src="https://s01.flagcounter.com/count2/VwSZ/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" 
+                 alt="Flag Counter" 
+                 border="0"
+                 style="max-width: 100%; height: auto;">
+        </a>
+    </div>
 
     <div id="background">
         <div id="foreground">
